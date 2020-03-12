@@ -21,7 +21,7 @@
 ---
 ## Overview and Problem Statement
 
-### <u>Overview</u>
+### __Overview__
 
 <p align="center">"Delays are costly for airlines and their passengers. A 2010 study commissioned by the Federal Aviation Administration estimated that flight delays cost the airline industry $8 billion a year, much of it due to increased spending on crews, fuel and maintenance. Delays cost passengers even more — nearly $17 billion."</p>
 <p align='right'>-"https://mashable.com/2014/12/10/cost-of-delayed-flights/"</p>
@@ -154,7 +154,7 @@ c. <b>crossind_comp feature</b> - This feature will help calculate the various c
 <b>ii. Average no. of arrivals in 3 hour window vs Arrival Delay deployment</b>
 <!--# ![](./images/num-arr-avg-3hr-vs-arrival-delay.jpg)-->
 <center>
-<img src="./images/num-arr-avg-3hr-vs-arrival-delay.jpg?" width="500" height="350">
+<img src="./images/num-arr-avg-3hr-vs-arrival-delay.jpg?" width="500" height="400">
 </center>
 <p> </p>
 <i>Plot seem to suggest that an increased competition for landing will potentially lead to an increase in arrival delay.</i>
@@ -189,7 +189,7 @@ c. <b>crossind_comp feature</b> - This feature will help calculate the various c
 <b>v. Arrival Delay by Distance (between the 2 airports)</b>
 <!--# ![](./images/distribution-delayed-flights-distance.jpg)-->
 <center>
-<img src="./images/distribution-delayed-flights-distance.jpg" width="500" height="350">
+<img src="./images/distribution-delayed-flights-distance.jpg" width="700" height="400">
 </center>
 <p> </p>
 <i>Plot shows that majority of delays are from airports which are <1000nm away from KATL.</i>
@@ -198,7 +198,7 @@ c. <b>crossind_comp feature</b> - This feature will help calculate the various c
 <b>vi. Arrival Delay by Late Aircraft Arrivals</b>
 <!--# ![](./images/distribution-delayed-flights-late-aircraft.jpg)-->
 <center>
-<img src="./images/distribution-delayed-flights-late-aircraft.jpg" width="500" height="350">
+<img src="./images/distribution-delayed-flights-late-aircraft.jpg" width="700" height="400">
 </center>
 <i>Plot shows that majority of delays also experienced a prior late aircraft delay of <200 minutes.</i>
 <p> </p>

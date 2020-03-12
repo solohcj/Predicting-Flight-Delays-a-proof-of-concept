@@ -21,7 +21,7 @@
 ---
 ## Overview and Problem Statement
 
-### __Overview__
+### <ins>Overview</ins>
 
 <p align="center">"Delays are costly for airlines and their passengers. A 2010 study commissioned by the Federal Aviation Administration estimated that flight delays cost the airline industry $8 billion a year, much of it due to increased spending on crews, fuel and maintenance. Delays cost passengers even more — nearly $17 billion."</p>
 <p align='right'>-"https://mashable.com/2014/12/10/cost-of-delayed-flights/"</p>
@@ -39,14 +39,14 @@ Apron phones ATC to request that they hold the aircraft on the taxiway while the
 As an Air Traffic Controller trainee previously, it is not uncommon to recieve requests from apron control for a bay change for an incoming arrival because of the delays of another flight. The rippling impact of an undetected delayed flight has great impact not just on the costs to the airlines, but also the undesired "surprises" on the ground operations of the aerodrome.
 
 ---
-### <u>Problem Statement</u>
+### <ins>Problem Statement</ins>
 
 **Can we accurately predict flight delays after it has began pushing back from its origin aerodrome?**
 
 ---
 ## Summary of Dataset
 
-### <u>Source of Datasets</u>:
+### <ins>Source of Datasets</ins>:
 
 Our final dataset is a combination from the following sources:
 
@@ -54,7 +54,7 @@ Our final dataset is a combination from the following sources:
 2. OGIMET - _'https://www.ogimet.com/'_
 
 
-### <u>Brief description of datasets</u>:
+### <ins>Brief description of datasets</ins>:
 
 1. Kaggle/US DOT Bureau of Transportation Statistics
 
@@ -70,18 +70,18 @@ The webpage is the source of our weather data. For the purpose of this project, 
 ---
 ## Data Cleaning Processes and Key Issues
 
-**1. <u>Extracting Weather Data</u>**
+**1. <ins>Extracting Weather Data</ins>**
 
 i. Scraping METAR data using OGIMET API and saving as text
 
 ii. Extracting relevant METAR data from txt format and population a dataframe for storing & export
 
-<b><u>Key Issues:</u></b>
+<b><ins>Key Issues:</ins></b>
   - <i>In a real world situation, we will only be able to get the TAF which is the weather forecast. METAR is the actual weather observed at the time while SPECI is the ammended weather observed if it fluctuates above a certain threshold. For the purpose of this project, we will not take SPECI into account for the models and will solely depend on METAR readings for our predictions.</i>
 
   - <i>For real life predictions, we will replace METAR reports with TAF reports and take in the inaccuracies of the TAF reports as a variance of our model.</i>
 
-**2. <u>Cleaning Weather Data</u>**
+**2. <ins>Cleaning Weather Data</ins>**
 
 i. Cleaning features to correct values & representation
 
@@ -89,17 +89,17 @@ ii. Changing features to correct dtype
 
 iii. Dropping weather features serve no purpose in subsequent modelling
 
-<b><u>Key Issues:</u></b>
+<b><ins>Key Issues:</ins></b>
   - <i>We should have 8760 rows of readings, but after we dropped the duplicates, we only have 3739 rows. It is likely that there are missing rows of data within for certain hours (highly likely to be MCAR). We will continue with 8739 rows of data as of now and later on drop the combined data with no weather.</i>
 
-**3. <u>Extracting & Exploring KATL Flight Data</u>**
+**3. <ins>Extracting & Exploring KATL Flight Data</ins>**
 
 i. Extracting only KATL flights from overall dataset
 
 ii. Exploring extracted KATL data to see if we have sufficient data for analysis & modelling
 
-<b><u>Key Issues:</u></b>
-  - <i>We shall set our objectives to classify arrival delay which have <u><b>began their departure</b></u>.</i>
+<b><ins>Key Issues:</ins></b>
+  - <i>We shall set our objectives to classify arrival delay which have <ins><b>began their departure</b></ins>.</i>
     > <i>For this, we will take Departure Delay _(the difference between actual time in which the aircraft started pushing back and the scheduled time of pushback)_ into consideration when doing predictions. Which effectively means the model is only usable after an aircraft is confirmed for departure and has started commencing departure pushback.</i>
 
   - <i>Do note that there are information in the dataset which we usually do not have the luxury of having till the actual event actualizes. As such we need to consider if we want to include them into the model later on (might not be realistic for real life usage).</i>
@@ -107,7 +107,7 @@ ii. Exploring extracted KATL data to see if we have sufficient data for analysis
   - <i>Our initial intention was to include enroute weather data into the model. However the data is very difficult to get our hands on. As such we will make the assumption that scheduled flight duration is done properly by the airlines with enroute weather taken into consideration.</i>
     > <i>The scheduled time will already consider enroute weather conditions _(e.g. strong enroute tail wind -> shorter flight duration)_ and as such we do not need to include it in the data. However, TAF or terminal METAR will still matter simply cause a very poor condition will cause diversions or holding delays due to the aircraft's inability to land</i>
 
-**4. <u>Cleaning Flight Data & Combining Datasets</u>**
+**4. <ins>Cleaning Flight Data & Combining Datasets</ins>**
 
 i. Cleaning flight data
 
@@ -115,7 +115,7 @@ ii. Deductive imputing/dropping of missing data
 
 iii. Merging flight, airlines, airports & weather (METAR) data into single dataframe
 
-<b><u>Key Issues:</u></b>
+<b><ins>Key Issues:</ins></b>
   - <i>Merging METAR and flight data is alot harder as we will need to match the correct METAR data to the correct flight. The strategy is to take the 1 hour aggregated data prior to every flight's landing. Because the purpose of the model is to predict delays, we will map the weather to the SCHEDULED_ARRIVAL time. So basically, we are looking at each entry as the weather which it will experience when it arrives at the scheduled arrival time.</i>
   - <i>SCHEDULED_ARRIVAL time data for flights to KATL is 5 hours behind UTC (the time used for the METAR data is in UTC), as such we will need to adjust accordingly.</i>
   <i>Effectively when we shift the hours behind by 5 to adjust for local & UTC timings, the last 5 hours of the flight weather data should be taken from 2016 weather (cause the KATL local time is 5 hours ahead of UTC). Do note that because of the time difference, the last 5 hours of 31st Dec 2015 will need to take weather data from the first 5 hours of 2016. To simplify things, and also because we do not have 2016 data, we will drop all data on the last day of 2015.</i>
@@ -128,7 +128,7 @@ iii. Merging flight, airlines, airports & weather (METAR) data into single dataf
 
 <i>While we eventually intend to build a model for every single route, we will be conducting EDA on the entire KATL dataset just to understand our dataset better</i>
 
-**1. <u>Feature Engineering</u>**
+**1. <ins>Feature Engineering</ins>**
 
 <b>Features created are:</b>
 
@@ -141,12 +141,12 @@ b. <b>NUM_ARR_AVG_3HOUR feature</b> - This feature will help us understand the c
 
 c. <b>crossind_comp feature</b> - This feature will help calculate the various crosswind component a flight experiences on landing.
 
-**2. <u>EDA</u>**
+**2. <ins>EDA</ins>**
 
 <b>i. Departure Delay vs Arrival Delay Plot</b>
 <!--# ![](./images/departure-delay-vs-arrival-delay.jpg)-->
 <center>
-<img src="./images/departure-delay-vs-arrival-delay.jpg" width="500" height="350">
+<img src="./images/departure-delay-vs-arrival-delay.jpg" width="500" height="500">
 </center>
 
 <i>Plot seem to suggest that departure delays have a subsequent linear impact on arrival delays</i>
@@ -154,7 +154,7 @@ c. <b>crossind_comp feature</b> - This feature will help calculate the various c
 <b>ii. Average no. of arrivals in 3 hour window vs Arrival Delay deployment</b>
 <!--# ![](./images/num-arr-avg-3hr-vs-arrival-delay.jpg)-->
 <center>
-<img src="./images/num-arr-avg-3hr-vs-arrival-delay.jpg?" width="500" height="400">
+<img src="./images/num-arr-avg-3hr-vs-arrival-delay.jpg?" width="500" height="500">
 </center>
 <p> </p>
 <i>Plot seem to suggest that an increased competition for landing will potentially lead to an increase in arrival delay.</i>
@@ -219,7 +219,7 @@ c. <b>crossind_comp feature</b> - This feature will help calculate the various c
 
 <i>As such crosswinds do play a role in causing delays, despite how the plot above looks like.</i>
 
-**3. <u>Dropping Anomalies</u>**
+**3. <ins>Dropping Anomalies</ins>**
 
 Per ICAO Annex 6, Part I, section 4.3.6 "Fuel Requirements," airplanes should calculate their required fuel quantity as follows (summary; see below for actual ICAO text):
 
@@ -345,13 +345,14 @@ Evaluation Metrics:
 Best performing model (for the 5 routes): XGBoost
 
 Explanation on the multiclass targets:
-<u>We will be classifying the delays into 3 groups:</u>
+
+<ins>We will be classifying the delays into 3 groups:</ins>
 1. <15 minutes _(group 0)_
 2. 15 minutes to 1 hour _(group 1)_
 3. 1 hour to 3 hours _(group 2)_
 4. above 3 hours _(group 3)_
 
-<u>Rationale:</u>
+<ins>Rationale:</ins>
 1. _(<15mins) belong to the no delay category where things are normal_
 2. _(15mins to 1hr) will be the category in which the airport or airline will perhaps decide if a reshuffling of ground resource deployment is needed_
 3. _(1hr to 3hr) will be the category in which the airline or airport will perhaps decide on the necessary actions to take to mitigate the impact of the delays (e.g. rescheduling transit passengers to another flight to prevent delaying the departure of the connecting flight, etc)_

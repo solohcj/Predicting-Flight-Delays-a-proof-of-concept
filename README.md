@@ -145,17 +145,17 @@ c. <b>crossind_comp feature</b> - This feature will help calculate the various c
 
 <b>i. Departure Delay vs Arrival Delay Plot</b>
 <!--# ![](./images/departure-delay-vs-arrival-delay.jpg)-->
-<center>
-<img src="./images/departure-delay-vs-arrival-delay.jpg" width="500" height="500">
-</center>
+<p align='center'>
+<img src="./images/departure-delay-vs-arrival-delay.jpg" width="400" height="400">
+</p>
 
 <i>Plot seem to suggest that departure delays have a subsequent linear impact on arrival delays</i>
 
 <b>ii. Average no. of arrivals in 3 hour window vs Arrival Delay deployment</b>
 <!--# ![](./images/num-arr-avg-3hr-vs-arrival-delay.jpg)-->
-<center>
-<img src="./images/num-arr-avg-3hr-vs-arrival-delay.jpg?" width="500" height="500">
-</center>
+<p align='center'>
+<img src="./images/num-arr-avg-3hr-vs-arrival-delay.jpg?" width="400" height="400">
+</p>
 <p> </p>
 <i>Plot seem to suggest that an increased competition for landing will potentially lead to an increase in arrival delay.</i>
 <i>We ran an ANOVA test and the p-value of 7.398e-79 is <0.05 and hence the feature has significance in causing arrival delays.</i>
@@ -164,11 +164,13 @@ c. <b>crossind_comp feature</b> - This feature will help calculate the various c
 <b>iii. Arrival Delays by Airlines</b>
 <!--# ![](./images/num-delayed-flights-by-airline.jpg)
 # ![](./images/average-delay-by-airline.jpg)-->
-<center>
+<p align='center'>
 <img src="./images/num-delayed-flights-by-airline.jpg" width="700" height="400">
+</p>
 <p> </p>
+<p align='center'>
 <img src="./images/average-delay-by-airline.jpg" width="700" height="400">
-</center>
+</p>
 <p> </p>
 <i>Whilst Delta Air accounts for the most number of domestic delayed flights, Frontier Airlines is the one which has the highest average delay per flight.</i>
 <p> </p>
@@ -176,11 +178,13 @@ c. <b>crossind_comp feature</b> - This feature will help calculate the various c
 <b>iv. Arrival Delays by Origin Airport</b>
 <!--# ![](./images/num-delayed-flights-origin-airport-top50.jpg)
 # ![](./images/average-delay-flights-origin-top50.jpg)-->
-<center>
+<p align='center'>
 <img src="./images/num-delayed-flights-origin-airport-top50.jpg" width="700" height="500">
+</p>
 <p> </p>
+<p align='center'>
 <img src="./images/average-delay-flights-origin-top50.jpg" width="700" height="500">
-</center>
+</p>
 <p> </p>
 
 <i>Whilst LaGuarda Airport accounts for the most number of domestic delayed flights, Hector International Airport is the one which accounts for the highest average delay per flight.</i>
@@ -188,29 +192,31 @@ c. <b>crossind_comp feature</b> - This feature will help calculate the various c
 
 <b>v. Arrival Delay by Distance (between the 2 airports)</b>
 <!--# ![](./images/distribution-delayed-flights-distance.jpg)-->
-<center>
+<p align='center'>
 <img src="./images/distribution-delayed-flights-distance.jpg" width="700" height="400">
-</center>
+</p>
 <p> </p>
 <i>Plot shows that majority of delays are from airports which are <1000nm away from KATL.</i>
 <p> </p>
 
 <b>vi. Arrival Delay by Late Aircraft Arrivals</b>
 <!--# ![](./images/distribution-delayed-flights-late-aircraft.jpg)-->
-<center>
+<p align='center'>
 <img src="./images/distribution-delayed-flights-late-aircraft.jpg" width="700" height="400">
-</center>
+</p>
 <i>Plot shows that majority of delays also experienced a prior late aircraft delay of <200 minutes.</i>
 <p> </p>
 
 <b>vii. Arrival Delay by Crosswind Component</b>
 <!--# ![](./images/crosswind-vs-arrival-delay.jpg)
 # ![](./images/distribution-arrival-delay-crosswind-comp.jpg)-->
-<center>
+<p align='center'>
 <img src="./images/crosswind-vs-arrival-delay.jpg" width="700" height="400">
+</p>
 <p> </p>
+<p align='center'>
 <img src="./images/distribution-arrival-delay-crosswind-comp.jpg" width="700" height="400">
-</center>
+</p>
 <p> </p>
 
 <i>As we look at the chart, we might think that high crosswinds have lesser impact on delaying a flight. On the contrary, based on my experience as an Air Traffic Controller, this is not the case. When the crosswinds are very high/extreme (maybe in the ranges above 5kts) aircrafts might choose to hold and wait out the weather instead of attempting to land. And this might not be reflected in the 'Amount of Arrival Delay' above as the amount of arrival delay could be dominantly influenced by other factors. (i.e. Even tho it seems that the higher delays of 1200 mins seem to be in the 5kts range, it could be due to other factors like late aircraft delays, etc; and these factors dominate outcome over the impact of crosswind component)</i>
@@ -286,9 +292,13 @@ Evaluation Metrics:
 | RMSE      | 15.2 mins |
 | R-Squared | 0.9646    |
 
+<p align='center'>
 <img src="./images/regression-all-routes-pred-vs-actual.jpg" width="700" height="500">
+</p>
 <p> </p>
+<p align='center'>
 <img src="./images/regression-all-routes-pred-vs-actual-residuals.jpg" width="700" height="500">
+</p>
 <p> </p>
 
 <!--# ![](./images/regression-all-routes-pred-vs-actual.jpg)
@@ -316,11 +326,17 @@ Evaluation Metrics:
 
 <i>Note: We will only be showing the residual rlots for the XGBoost model for ORD route as the other plots are very similar</i>
 
+<p align='center'>
 <img src="./images/predicted-vs-actual-delay-single-ord-xgb.jpg" width="700" height="500">
+</p>
 <p> </p>
+<p align='center'>
 <img src="./images/residual-plot-single-ord-xgb.jpg" width="700" height="500">
+</p>
 <p> </p>
+<p align='center'>
 <img src="./images/qq-plot-single-ord-xgb.jpg" width="700" height="500">
+</p>
 <p> </p>
 
 <!--# ![](./images/predicted-vs-actual-delay-single-ord-xgb.jpg)

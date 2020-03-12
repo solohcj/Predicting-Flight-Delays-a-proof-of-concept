@@ -58,14 +58,14 @@ Our final dataset is a combination from the following sources:
 
 1. Kaggle/US DOT Bureau of Transportation Statistics
 
-The dataset consists of 3 files:
-> 1. airlines.csv - Airline information
-> 2. airports.csv - Airport information
-> 3. flights.csv - Domestic flight information in US for year 2015
+  The dataset consists of 3 files:
+  > 1. airlines.csv - Airline information
+  > 2. airports.csv - Airport information
+  > 3. flights.csv - Domestic flight information in US for year 2015
 
 2. OGIMET
 
-The webpage is the source of our weather data. For the purpose of this project, we used the API to retrieve the METAR & SPECI reports for Atlanta International Airport for the year 2015.
+  The webpage is the source of our weather data. For the purpose of this project, we used the API to retrieve the METAR & SPECI reports for Atlanta International Airport for the year 2015.
 
 ---
 ## Data Cleaning Processes and Key Issues
@@ -139,7 +139,7 @@ b. <b>NUM_ARR_AVG_3HOUR feature</b> - This feature will help us understand the c
 
   > <i>The dataset is only comprising of domestic flights within the US as shown above. Now this poses an issue that the NUM_ARR_IN_HOUR feature will not capture the actual number of flights scheduled to arrive in that hour (due to missing international flight data). The flights into KATL consists of approximately 90% domestic & 10% international. We have elected to continue using only the domestic flight data and we assume that the machine will adjust its weights accordingly to the scaled inputs (to simply capture the impact of the changes in magnitude)</i>
 
-c. <b>crossind_comp feature</b> - This feature will help calculate the various crosswind component a flight experiences on landing.
+c. <b>crosswind_comp feature</b> - This feature will help calculate the various crosswind component a flight experiences on landing.
 
 **2. <ins>EDA</ins>**
 
@@ -354,7 +354,7 @@ Evaluation Metrics:
 
   >1. when the predictions are above the 1 SD mark (or when predicted delays are >37mins (for ORD only, other routes have different threshold for 1 SD)).
 
-  >2. OR we can build a multiclass classification model to help bin the delays into 1 hour periods (which we will do in our final model).
+  >2. OR we can build a multiclass classification model to help bin the delays into various periods (which we will do in our final model).
 
 ### Multiclass Classification Modelling for Single Route (Final Methodology Deployed)
 
@@ -362,7 +362,7 @@ Best performing model (for the 5 routes): XGBoost
 
 Explanation on the multiclass targets:
 
-<ins>We will be classifying the delays into 3 groups:</ins>
+<ins>We will be classifying the delays into 4 groups:</ins>
 1. <15 minutes _(group 0)_
 2. 15 minutes to 1 hour _(group 1)_
 3. 1 hour to 3 hours _(group 2)_
@@ -447,6 +447,7 @@ i. Including all international flights
 ii. Incorporating enroute weather data
 
 **Further Research:**
+
 <b>One of the few interesting realization while doing this project are:</b>
 
 a. When the delays are low, there are too many possible factors affecting the amount of delays (e.g pilot mistakes, ATC mistakes, another aircraft on the taxiway causing delays). As the delays increase, the possibilities/noise are "even-ed" out by more stable concrete factors. Hence the decrease of variance in prediction as time proceeds on. I believe this heteroscedastic nature is nearly impossible to handle without decreasing the RMSE of the model (which would likely render the model useless practically).

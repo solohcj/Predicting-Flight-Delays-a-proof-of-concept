@@ -1,4 +1,4 @@
-# <img src="./images/airplane-symbol.jpg" width="70" height="70" /> Predicting Flight Delays (<i>a Proof-of-Concept</i>)
+# <img src="./images/airplane-symbol.jpg" width="70" height="70"> Predicting Flight Delays (<i>a Proof-of-Concept</i>)
 
 ## Contents:
 - [Overview and Problem Statement](#Overview-and-Problem-Statement)
@@ -9,11 +9,11 @@
   2. [Brief description of datasets](#Brief-description-of-datasets)
 - [Data Cleaning Processes and Key Issues](#Data-Cleaning-Processes-and-Key-Issues)
 - [EDA and Feature Engineering](#EDA-and-Feature-Engineering)
-- [Methodologies, Their Metrics & Limitations](#Methodologies,-Their-Metrics-and-Limitations)
-  1. [Binary Classification Modelling for All Routes](#1.-Binary-Classification-Modelling-for-All-Routes)
-  2. [Regression Modelling for All Routes](#2.-Regression-Modelling-for-All-Routes)
-  3. [Regression Modelling for Single Route](#3.-Regression-Modelling-for-Single-Route)
-  4. [Multiclass Classification Modelling for Single Route (Final Methodology Deployed)](#4.-Multiclass-Classification-Modelling-for-Single-Route-(Final-Methodology-Deployed))
+- [Methodologies Their Metrics & Limitations](#Methodologies-Their-Metrics-and-Limitations)
+  1. [Binary Classification Modelling for All Routes](#Binary-Classification-Modelling-for-All-Routes)
+  2. [Regression Modelling for All Routes](#Regression-Modelling-for-All-Routes)
+  3. [Regression Modelling for Single Route](#Regression-Modelling-for-Single-Route)
+  4. [Multiclass Classification Modelling for Single Route (Final Methodology Deployed)](#Multiclass-Classification-Modelling-for-Single-Route-(Final-Methodology-Deployed))
 - [Conclusion and Further Research](#Conclusion-and-Further-Research)
 
 <b>NOTE:</b> <i>The repository will not include the flight data due to the huge size of it. You can get the data from the kaggle source mentioned below if you need it</i>
@@ -143,36 +143,76 @@ c. <b>crossind_comp feature</b> - This feature will help calculate the various c
 
 **2. <u>EDA</u>**
 
-i. Departure Delay vs Arrival Delay Plot
-# ![](./images/departure-delay-vs-arrival-delay.jpg)
+<b>i. Departure Delay vs Arrival Delay Plot</b>
+<!--# ![](./images/departure-delay-vs-arrival-delay.jpg)-->
+<center>
+<img src="./images/departure-delay-vs-arrival-delay.jpg" width="500" height="350">
+</center>
+
 <i>Plot seem to suggest that departure delays have a subsequent linear impact on arrival delays</i>
 
-ii. Average no. of arrivals in 3 hour window vs Arrival Delay deployment
-# ![](./images/num-arr-avg-3hr-vs-arrival-delay.jpg)
+<b>ii. Average no. of arrivals in 3 hour window vs Arrival Delay deployment</b>
+<!--# ![](./images/num-arr-avg-3hr-vs-arrival-delay.jpg)-->
+<center>
+<img src="./images/num-arr-avg-3hr-vs-arrival-delay.jpg?" width="500" height="350">
+</center>
+<p> </p>
 <i>Plot seem to suggest that an increased competition for landing will potentially lead to an increase in arrival delay.</i>
 <i>We ran an ANOVA test and the p-value of 7.398e-79 is <0.05 and hence the feature has significance in causing arrival delays.</i>
+<p> </p>
 
-iii. Arrival Delays by Airlines
-# ![](./images/num-delayed-flights-by-airline.jpg)
-# ![](./images/average-delay-by-airline.jpg)
+<b>iii. Arrival Delays by Airlines</b>
+<!--# ![](./images/num-delayed-flights-by-airline.jpg)
+# ![](./images/average-delay-by-airline.jpg)-->
+<center>
+<img src="./images/num-delayed-flights-by-airline.jpg" width="700" height="400">
+<p> </p>
+<img src="./images/average-delay-by-airline.jpg" width="700" height="400">
+</center>
+<p> </p>
 <i>Whilst Delta Air accounts for the most number of domestic delayed flights, Frontier Airlines is the one which has the highest average delay per flight.</i>
+<p> </p>
 
-iv. Arrival Delays by Origin Airport
-# ![](./images/num-delayed-flights-origin-airport-top50.jpg)
-# ![](./images/average-delay-flights-origin-top50.jpg)
+<b>iv. Arrival Delays by Origin Airport</b>
+<!--# ![](./images/num-delayed-flights-origin-airport-top50.jpg)
+# ![](./images/average-delay-flights-origin-top50.jpg)-->
+<center>
+<img src="./images/num-delayed-flights-origin-airport-top50.jpg" width="700" height="500">
+<p> </p>
+<img src="./images/average-delay-flights-origin-top50.jpg" width="700" height="500">
+</center>
+<p> </p>
+
 <i>Whilst LaGuarda Airport accounts for the most number of domestic delayed flights, Hector International Airport is the one which accounts for the highest average delay per flight.</i>
+<p> </p>
 
-v. Arrival Delay by Distance (between the 2 airports)
-# ![](./images/distribution-delayed-flights-distance.jpg)
+<b>v. Arrival Delay by Distance (between the 2 airports)</b>
+<!--# ![](./images/distribution-delayed-flights-distance.jpg)-->
+<center>
+<img src="./images/distribution-delayed-flights-distance.jpg" width="500" height="350">
+</center>
+<p> </p>
 <i>Plot shows that majority of delays are from airports which are <1000nm away from KATL.</i>
+<p> </p>
 
-vi. Arrival Delay by Late Aircraft Arrivals
-# ![](./images/distribution-delayed-flights-late-aircraft.jpg)
+<b>vi. Arrival Delay by Late Aircraft Arrivals</b>
+<!--# ![](./images/distribution-delayed-flights-late-aircraft.jpg)-->
+<center>
+<img src="./images/distribution-delayed-flights-late-aircraft.jpg" width="500" height="350">
+</center>
 <i>Plot shows that majority of delays also experienced a prior late aircraft delay of <200 minutes.</i>
+<p> </p>
 
-vii. Arrival Delay by Crosswind Component
-# ![](./images/crosswind-vs-arrival-delay.jpg)
-# ![](./images/distribution-arrival-delay-crosswind-comp.jpg)
+<b>vii. Arrival Delay by Crosswind Component</b>
+<!--# ![](./images/crosswind-vs-arrival-delay.jpg)
+# ![](./images/distribution-arrival-delay-crosswind-comp.jpg)-->
+<center>
+<img src="./images/crosswind-vs-arrival-delay.jpg" width="700" height="400">
+<p> </p>
+<img src="./images/distribution-arrival-delay-crosswind-comp.jpg" width="700" height="400">
+</center>
+<p> </p>
+
 <i>As we look at the chart, we might think that high crosswinds have lesser impact on delaying a flight. On the contrary, based on my experience as an Air Traffic Controller, this is not the case. When the crosswinds are very high/extreme (maybe in the ranges above 5kts) aircrafts might choose to hold and wait out the weather instead of attempting to land. And this might not be reflected in the 'Amount of Arrival Delay' above as the amount of arrival delay could be dominantly influenced by other factors. (i.e. Even tho it seems that the higher delays of 1200 mins seem to be in the 5kts range, it could be due to other factors like late aircraft delays, etc; and these factors dominate outcome over the impact of crosswind component)</i>
 
 <i>At most airports, crosswinds above 35kts prohibit landings and take off. Based on experience, at wind speeds above 25kts you will start seeing minor delays, depending on airport configuration and aircraft type. At around 40kts the delays will start becoming significant.</i>
@@ -208,7 +248,7 @@ We shall ignore discresionary fuel for the unpredictable nature of it.
 <b>Hence if a flight's _actual airtime_ is greater than this delay timing, we would categorize it as an anomaly and drop it</b>
 
 ---
-## Methodologies, Their Metrics and Limitations
+## Methodologies Their Metrics and Limitations
 
 In summary, the following are the methodologies which we have tried:
 1. Binary Classification Modelling for All Routes (<i>followed by Regression for delayed flights</i>)
@@ -218,7 +258,7 @@ In summary, the following are the methodologies which we have tried:
 
 <i>Note: For Single Route modelling, we are only doing it for the top 5 routes with most delays as a proof-of-concept.</i>
 
-### 1. Binary Classification Modelling for All Routes
+### Binary Classification Modelling for All Routes
 
 Best performing model: XGBoost
 
@@ -234,7 +274,7 @@ Evaluation Metrics (<i>Positive class is delayed flights</i>):
 **Comments**
 - The sensitivity of the model is significantly lower than the accuracy.
 
-### 2. Regression Modelling for All Routes
+### Regression Modelling for All Routes
 
 Caveat: Model is trained only on flights which are considered to be delayed (delay >15mins)
 Best performing model: XGBoost
@@ -246,13 +286,18 @@ Evaluation Metrics:
 | RMSE      | 15.2 mins |
 | R-Squared | 0.9646    |
 
-# ![](./images/regression-all-routes-pred-vs-actual.jpg)
-# ![](./images/regression-all-routes-pred-vs-actual-residuals.jpg)
+<img src="./images/regression-all-routes-pred-vs-actual.jpg" width="700" height="500">
+<p> </p>
+<img src="./images/regression-all-routes-pred-vs-actual-residuals.jpg" width="700" height="500">
+<p> </p>
+
+<!--# ![](./images/regression-all-routes-pred-vs-actual.jpg)
+# ![](./images/regression-all-routes-pred-vs-actual-residuals.jpg)-->
 
 **Comments**
 - There is heteroscadacity in the residuals. Because of this issue, we further explored the next option of <b><i>Regression Modelling for Single Route</b></i>. The rationale was that perhaps there could be factors for each individual routes which differ in variation from another and these factors have increasing influence at the lower delays, thereby causing the high variance at the start.
 
-### 3. Regression Modelling for Single Route
+### Regression Modelling for Single Route
 
 Caveat: Model is trained only on flights which have delays <420mins (<i>We are trying to narrow our scope and remove extreme values in an attempt to reduce heteroscedacity</i>)
   >Rationale: Customers would have to be compensated after delays exceed 3 hours (for EU). Since we are looking at US and they DO NOT have any form of obligated compensation for flight delays, we shall use 420mins(7hours) as a benchmark. Also, if delays are long, airlines would likely reschedule the departure to a later timing.
@@ -271,9 +316,16 @@ Evaluation Metrics:
 
 <i>Note: We will only be showing the residual rlots for the XGBoost model for ORD route as the other plots are very similar</i>
 
-# ![](./images/predicted-vs-actual-delay-single-ord-xgb.jpg)
+<img src="./images/predicted-vs-actual-delay-single-ord-xgb.jpg" width="700" height="500">
+<p> </p>
+<img src="./images/residual-plot-single-ord-xgb.jpg" width="700" height="500">
+<p> </p>
+<img src="./images/qq-plot-single-ord-xgb.jpg" width="700" height="500">
+<p> </p>
+
+<!--# ![](./images/predicted-vs-actual-delay-single-ord-xgb.jpg)
 # ![](./images/residual-plot-single-ord-xgb.jpg)
-# ![](./images/qq-plot-single-ord-xgb.jpg)
+# ![](./images/qq-plot-single-ord-xgb.jpg)-->
 
 **Comments**
 - As we can see, by modelling the delay route by route, we significantly improve our RMSE value.
@@ -288,7 +340,7 @@ Evaluation Metrics:
 
   >2. OR we can build a multiclass classification model to help bin the delays into 1 hour periods (which we will do in our final model).
 
-### 4. Multiclass Classification Modelling for Single Route (Final Methodology Deployed)
+### Multiclass Classification Modelling for Single Route (Final Methodology Deployed)
 
 Best performing model (for the 5 routes): XGBoost
 

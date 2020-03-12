@@ -450,7 +450,7 @@ ii. Incorporating enroute weather data
 
 <b>One of the few interesting realization while doing this project are:</b>
 
-a. <b>When the delays are low, there are too many possible factors affecting the amount of delays</b>. As the delays increase, the possibilities/noise are "even-ed" out by more stable concrete factors. <ins>Hence, the explanation for the heteroscedastic nature of the errors as delay increases</ins>.
+a. <b>When the delays are low, there are too many possible factors affecting the amount of delays</b>. As the delays increase, the possibilities/noise are "even-ed" out by more stable concrete factors. <ins>Hence, the very possible explanation for the heteroscedastic nature of the errors as delay increases</ins>.
 
 The heteroscedastic phenomenon has significantly increased the complexity in trying to predict delays. Perhaps further studies should be done on it to help us better predict in the future.
 

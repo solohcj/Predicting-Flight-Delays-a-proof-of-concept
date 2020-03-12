@@ -450,8 +450,8 @@ ii. Incorporating enroute weather data
 
 <b>One of the few interesting realization while doing this project are:</b>
 
-a. When the delays are low, there are too many possible factors affecting the amount of delays (e.g pilot mistakes, ATC mistakes, another aircraft on the taxiway causing delays). As the delays increase, the possibilities/noise are "even-ed" out by more stable concrete factors. Hence the decrease of variance in prediction as time proceeds on. I believe this heteroscedastic nature is nearly impossible to handle without decreasing the RMSE of the model (which would likely render the model useless practically).
+a. <b>When the delays are low, there are too many possible factors affecting the amount of delays</b>. As the delays increase, the possibilities/noise are "even-ed" out by more stable concrete factors. <ins>Hence, the explanation for the heteroscedastic nature of the errors as delay increases</ins>.
 
-The seemingly heteroscedastic nature of delays has significantly increased the complexity in trying to predict it. Perhaps further studies should be done on it to help us better predict delays in the future.
+The heteroscedastic phenomenon has significantly increased the complexity in trying to predict delays. Perhaps further studies should be done on it to help us better predict in the future.
 
-b. The impact of weather on delays seem to diminish with greater distance between the 2 airports. The hypothesis makes logical sense as the further the distance, the more "buffer" the flight has to make up for time and as such would be less affected by approach weather. Further studies could be done on this to help us understand the impact of weather on delays more.
+b. <b>The impact of weather on delays seem to diminish with greater distance between the 2 airports</b>. The hypothesis makes logical sense as the further the distance, the more "buffer" the flight has to make up for time and as such would be less affected by approach weather. Further studies could be done on this to help us understand the impact of weather on delays more.

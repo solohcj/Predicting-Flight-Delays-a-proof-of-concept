@@ -1,5 +1,8 @@
 # <img src="./images/airplane-symbol.jpg" width="70" height="70"> Predicting Flight Delays (<i>a Proof-of-Concept</i>)
 
+## [Model Demonstration](#https://flightpredictions.herokuapp.com/)
+**For a demonstration of the deployed model, visit:** https://flightpredictions.herokuapp.com/
+
 ## Contents:
 - [Overview and Problem Statement](#Overview-and-Problem-Statement)
   1. [Overview](#Overview)
@@ -433,7 +436,7 @@ E. MCO XGBoost Evaluation Metric
 - For most of the models, the 2nd class of delays between 15mins to 1hour seem to perform significantly lower than the other classes. This could very likely be due to the phenomenon of high variance at low delay explained above
 - The multiclass classification model yields decent results and seem to fit the operational purposes better.
 
-**For a demonstration of the deployed model, visit:** https://flightpredictions.herokuapp.com/
+**Once again, for a demonstration of the deployed model, visit:** https://flightpredictions.herokuapp.com/
 
 <i>Note: The model deployed on the webpage is RandomForest, not XGBoost (due to model exporting issues). The performance is slightly lower and if I do resolve the issue and upload it, I will update it here.</i>
 
